@@ -4,12 +4,13 @@ import "firebase/auth";
 if (!firebase.apps.length) {
   // Paste your config object here ⬇️
   const firebaseConfig = {
-    apiKey: "AIzaSyBpjUjFAt7RZAVFda1OBJCHRYssLzdlJYY",
-    authDomain: "nodejs-firebase-app-408c6.firebaseapp.com",
-    projectId: "nodejs-firebase-app-408c6",
-    storageBucket: "nodejs-firebase-app-408c6.appspot.com",
-    messagingSenderId: "370587034017",
-    appId: "1:370587034017:web:aabc0671314c2d40d0abe0",
+    apiKey: "AIzaSyDdehS9S79L0XWEGykb1T_kkITFUmU8Vtw",
+    authDomain: "fir-test-a5add.firebaseapp.com",
+    projectId: "fir-test-a5add",
+    storageBucket: "fir-test-a5add.appspot.com",
+    messagingSenderId: "263412463793",
+    appId: "1:263412463793:web:855ae9a8425d63cb19ca90",
+    measurementId: "G-ZZCVG51T8D"
   };
 
   firebase.initializeApp(firebaseConfig);
@@ -56,4 +57,11 @@ export function getCurrentUserEmail() {
   }
 
   return auth.currentUser.email;
+}
+
+export function getCurrentUser() {
+  if (!auth.currentUser) {
+    return null;
+  }
+  return auth.currentUser;
 }

@@ -1,9 +1,15 @@
-import { useState, useEffect, useContext } from "react";
+import {
+  useState,
+  useEffect,
+  useContext
+} from "react";
 import axios from "axios";
 
 import Header from "../../components/Header/Header";
 import AuthContext from "../../context/AuthContext";
-import { getCurrentUserToken } from "../../firebase/firebase";
+import {
+  getCurrentUserToken
+} from "../../firebase/firebase";
 
 async function fetchUserToken(setUserToken, setLoading, setError) {
   setLoading(true);
@@ -63,52 +69,81 @@ function Home() {
     }
   }, [users, userToken]);
 
-  return (
-    <>
-      <Header />
-      <main className="container p-4">
-        <section className="row row-cols-1">
-          <header className="col">
-            <h1>Home Page</h1>
-            <hr />
-          </header>
-          {!users && !loading && !error && (
-            <div className="col">
-              <h2 className="h4">Nothing here</h2>
-            </div>
-          )}
-          {loading && (
-            <div className="col">
-              <h2 className="h4">Loading users...</h2>
-            </div>
-          )}
-          {!loading && error && (
-            <div className="col">
-              <h2 className="h4">Something went wrong</h2>
-              <code>{error.message}</code>
-            </div>
-          )}
-          {users && users.length > 0 && (
-            <>
-              <div className="col">
-                <h2 className="h5">Users</h2>
-                <hr />
-              </div>
-              {users.map((user) => (
-                <div className="col" key={user._id}>
-                  <div className="col px-2 py-3 border" key={user._id}>
-                    <p className="h5 m-0">
-                      {user.firstName} {user.lastName}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </>
-          )}
-        </section>
-      </main>
-    </>
-  );
+  return ( <
+    >
+    <
+    Header / >
+    <
+    main className = "container p-4" >
+    <
+    section className = "row row-cols-1" >
+    <
+    header className = "col" >
+    <
+    h1 > Home Page < /h1> <
+    hr / >
+    <
+    /header> {!users && !loading && !error && ( <
+      div className = "col" >
+      <
+      h2 className = "h4" > Nothing here < /h2> < /
+      div >
+    )
+  } {
+    loading && ( <
+      div className = "col" >
+      <
+      h2 className = "h4" > Loading users... < /h2> < /
+      div >
+    )
+  } {
+    !loading && error && ( <
+      div className = "col" >
+      <
+      h2 className = "h4" > Something went wrong < /h2> <
+      code > {
+        error.message
+      } < /code> < /
+      div >
+    )
+  } {
+    users && users.length > 0 && ( <
+        >
+        <
+        div className = "col" >
+        <
+        h2 className = "h5" > Users < /h2> <
+        hr / >
+        <
+        /div> {
+        users.map((user) => ( <
+          div className = "col"
+          key = {
+            user._id
+          } >
+          <
+          div className = "col px-2 py-3 border"
+          key = {
+            user._id
+          } >
+          <
+          p className = "h5 m-0" > {
+            user.firstName
+          } {
+            user.lastName
+          } <
+          /p> < /
+          div > <
+          /div>
+        ))
+      } <
+      />
+  )
+} <
+/section> < /
+main > <
+  />
+);
 }
 
 export default Home;
